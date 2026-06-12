@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Мои проекты — Саят</title>
+    <link rel="stylesheet" href="my-projects.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="main.html">главная</a></li>
+                <li><a href="languages.html">языки</a></li>
+                <li><a href="blog.html">блог</a></li>
+                <li><a href="my-projects.html">мои проекты</a></li>
+            </ul>
+        </nav>
+        <a href="contacts.html" class="contact">связаться со мной</a>
+    </header>
+    <main>
+        <section class="page-intro">
+            <h1 class="page-title">Мои проекты</h1>
+            <p class="page-desc">Работы, которые я сделал в процессе обучения. Каждый проект — это новый урок.</p>
+        </section>
+        <div class="filter-row">
+            <button class="filter-btn active">Все</button>
+            <button class="filter-btn">Лендинги</button>
+            <button class="filter-btn">Сайты</button>
+            <button class="filter-btn">Figma</button>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-preview">
+                    <span class="preview-emoji">🌿</span>
+                </div>
+                <div class="project-info">
+                    <span class="project-tag">Лендинг</span>
+                    <h3 class="project-name">Личный Сайт</h3>
+                    <p class="project-desc">Первый вариант личного сайта. Сделан на Tilda.</p>
+                    <div class="tech-list">
+                        <span class="tech">Tilda</span>
+                    </div>
+                    <a href="https://almatulyys.tilda.ws/" target="_blank" class="view-btn">Посмотреть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <span class="preview-emoji">💅</span>
+                </div>
+                <div class="project-info">
+                    <span class="project-tag">Лендинг</span>
+                    <h3 class="project-name">Маникюр салон</h3>
+                    <p class="project-desc">Лендинг для вымешленного маникюр салона. Практика Flexbox и hover-эффектов.</p>
+                    <div class="tech-list">
+                        <span class="tech">HTML</span>
+                        <span class="tech">CSS</span>
+                        <span class="tech">Flexbox</span>
+                    </div>
+                    <a href="https://nailcure-drab.vercel.app" class="view-btn">Посмотреть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <span class="preview-emoji">🎨</span>
+                </div>
+                <div class="project-info">
+                    <span class="project-tag">Figma</span>
+                    <h3 class="project-name">Макет приложения</h3>
+                    <p class="project-desc">UI-дизайн мобильного приложения. Работа с компонентами и сеткой.</p>
+                    <div class="tech-list">
+                        <span class="tech">Figma</span>
+                        <span class="tech">UI/UX</span>
+                    </div>
+                    <a href="https://www.figma.com/design/eJtA2Ri2n4yrjrqq81S4WE/Untitled?node-id=0-1&t=QU2UxAkzHMGO28Z9-1" class="view-btn">Посмотреть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <span class="preview-emoji">🎮</span>
+                </div>
+                <div class="project-info">
+                    <span class="project-tag">Сайт</span>
+                    <h3 class="project-name">Квиз на JS (Ожидается)</h3>
+                    <p class="project-desc">Интерактивный квиз на JavaScript. Первый опыт работы с DOM.</p>
+                    <div class="tech-list">
+                        <span class="tech">HTML</span>
+                        <span class="tech">CSS</span>
+                        <span class="tech">JS</span>
+                    </div>
+                    <a href="#" class="view-btn">Посмотреть</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-left">
+            <span>&copy;2026 саят</span>
+        </div>
+        <div class="footer-right">
+            <a href="https://github.com/sayatalmatuly/Portfolio">Github</a>
+            <a href="https://t.me/almatulyy_s">Telegram</a>
+        </div>
+    </footer>
+<script>
+    // 1. Находим все кнопки и все карточки проектов на странице
+    const btns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.project-card');
+
+    // 2. Заставляем каждую кнопку «слушать» клики
+    btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            
+            // Сначала убираем класс 'active' у ВСЕХ кнопок и даем его только той, на которую кликнули
+            btns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Получаем текст кнопки (например: "Все", "Лендинги", "Сайты")
+            const filterValue = btn.textContent.trim();
+
+            // 3. Проверяем каждую карточку
+            cards.forEach(card => {
+                // Находим тег внутри текущей карточки (например: "Лендинг", "Figma", "Сайт")
+                const tagValue = card.querySelector('.project-tag').textContent.trim();
+                
+                // Если нажали "Все" ИЛИ текст кнопки совпадает с тегом карточки
+                // (Внимание: "Лендинги" на кнопке и "Лендинг" в теге немного отличаются, скрипт ниже это учтет)
+                if (filterValue === 'Все' || filterValue.startsWith(tagValue) || tagValue.startsWith(filterValue)) {
+                    card.style.display = 'block'; // Показываем карточку
+                } else {
+                    card.style.display = 'none';  // Скрываем карточку
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

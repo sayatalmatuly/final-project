@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Блог — Саят</title>
+    <link rel="stylesheet" href="blog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="main.html">главная</a></li>
+                <li><a href="languages.html">языки</a></li>
+                <li><a href="blog.html">блог</a></li>
+                <li><a href="my-projects.html">мои проекты</a></li>
+            </ul>
+        </nav>
+        <a href="contacts.html" class="contact">связаться со мной</a>
+    </header>
+    <main>
+        <section class="page-intro">
+            <h1 class="page-title">Полезные материалы</h1>
+            <p class="page-desc">Книги, курсы, YouTube-каналы и статьи, которые помогут тебе в веб-разработке.</p>
+        </section>
+        <div class="filter-row">
+            <button class="filter-btn active">Все</button>
+            <button class="filter-btn">Книга</button>
+            <button class="filter-btn">Курс</button>
+            <button class="filter-btn">YouTube</button>
+            <button class="filter-btn">Статья</button>
+            <button class="filter-btn">Фильм</button>
+        </div>
+        <div class="blog-grid">
+            <article class="blog-card">
+                <div class="card-badge">Книга</div>
+                <h3 class="card-title">Изучаем Python</h3>
+                <p class="card-text">Эрик Мэтиз — лучший старт для новичков. Примеры из реальной жизни и три больших проекта в конце.</p>
+                <a href="https://iro23.ru/sites/default/files/e.metiz_-_izuchaem_python._programmirovanie_igr_vizualizaciya_dannyh_veb-prilozheniya_-_2017.pdf" class="read-btn">Читать</a>
+            </article>
+            <article class="blog-card">
+                <div class="card-badge">Книга</div>
+                <h3 class="card-title">Чистый код</h3>
+                <p class="card-text">Роберт Мартин — как писать код, который читают люди, а не только машины. Обязательно к прочтению.</p>
+                <a href="https://libcat.ru/knigi/kompyutery-i-internet/programmirovanie/396005-robert-martin-chistyj-kod-sozdanie-analiz-i-refaktoring.html#read" class="read-btn">Читать</a>
+            </article>
+            <article class="blog-card">
+                <div class="card-badge">Курс</div>
+                <h3 class="card-title">The Odin Project</h3>
+                <p class="card-text">Бесплатный путь от нуля до fullstack. HTML, CSS, JavaScript, React, Node.js — всё по порядку.</p>
+                <a href="https://www.theodinproject.com" target="_blank" class="read-btn">Перейти</a>
+            </article>
+            <article class="blog-card">
+                <div class="card-badge">Курс</div>
+                <h3 class="card-title">freeCodeCamp</h3>
+                <p class="card-text">Огромная бесплатная платформа с сертификатами. Отличная практика и активное сообщество.</p>
+                <a href="https://www.freecodecamp.org" target="_blank" class="read-btn">Перейти</a>
+            </article>
+            <article class="blog-card">
+                <div class="card-badge">YouTube</div>
+                <h3 class="card-title">Traversy Media</h3>
+                <p class="card-text">Брэд Траверси — один из лучших каналов по веб-разработке. Понятные туториалы на любой уровень.</p>
+                <a href="https://youtube.com/@TraversyMedia" target="_blank" class="read-btn">Смотреть</a>
+            </article>
+            <article class="blog-card">
+                <div class="card-badge">YouTube</div>
+                <h3 class="card-title">Fireship</h3>
+                <p class="card-text">Короткие, ёмкие видео о веб-технологиях. Если хочешь быть в курсе актуальных трендов — сюда.</p>
+                <a href="https://youtube.com/@Fireship" target="_blank" class="read-btn">Смотреть</a>
+            </article>
+            <article class="blog-card">
+                <div class="card-badge">Статья</div>
+                <h3 class="card-title">MDN Web Docs</h3>
+                <p class="card-text">Официальная документация по HTML, CSS и JS. Главный справочник любого фронтенд-разработчика.</p>
+                <a href="https://developer.mozilla.org" target="_blank" class="read-btn">Читать</a>
+            </article>
+            <article class="blog-card">
+                <div class="card-badge">Фильм</div>
+                <h3 class="card-title">Социальная сеть</h3>
+                <p class="card-text">История создания Facebook. Вдохновляет и напоминает: большие проекты начинаются с одной идеи.</p>
+                <a href="https://kinogo-2.biz/14717--socialnaja-set.html" class="read-btn">Смотреть</a>
+            </article>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-left">
+            <span>&copy;2026 саят</span>
+        </div>
+        <div class="footer-right">
+            <a href="https://github.com/sayatalmatuly/Portfolio">Github</a>
+            <a href="https://t.me/almatulyy_s">Telegram</a>
+        </div>
+    </footer>
+    <script>
+        const btns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.blog-card');
+
+        btns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Переключаем активный класс у кнопок
+                btns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filterValue = btn.textContent.trim();
+
+                // Фильтруем карточки
+                cards.forEach(card => {
+                    const badgeValue = card.querySelector('.card-badge').textContent.trim();
+                    
+                    if (filterValue === 'Все' || filterValue === badgeValue) {
+                        card.style.display = 'flex'; // или 'block', смотря как настроен CSS в .blog-card
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
